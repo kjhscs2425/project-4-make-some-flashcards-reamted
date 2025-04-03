@@ -3,15 +3,22 @@ import os
 import json
 import random
 
-if os.path.isfile("scores.txt"):
-    with open("scores.txt", "r") as user_data:
-        user_data =json.load (user_data)
+if os.path.isfile("scores.json"):
+    with open("scores.json", "r") as user_data:
+        user_data =json.load(user_data)
+
 else:
     user_data = {}
+    
 
 
-name = input("what is your name")
+name = input("what is your name ")
 score = 0
+ 
+if name in user_data:
+    list_of_scores = user_data[name]
+    print(f"your privious scores are {list_of_scores}")
+
 
 def main():
     
@@ -33,15 +40,10 @@ def main():
         return impossible()
     else:
         print("please input a numeber between one and five corisponding which with which difficulty you want")
-
-
-
-
-
 def easy():
      global score
      #easy multiplication (2-12)
-     for i in range(20):
+     for i in range(2):
         a = random.randint(2,12)
         b = random.randint(2,12)
         answer = a*b
@@ -51,7 +53,6 @@ def easy():
             score += 10
         else:
             print(f"incorrect, the correct answer is {answer}")
-
 def easy_medium():
     global score
     #things ending in 0 or 5 * anything from 2-30
@@ -67,7 +68,6 @@ def easy_medium():
                 score += 20
         else:
             print(f"incorrect, the correct answer is {answer}")
-
 def medium():
     global score
     #thins from 2-30*2-30
@@ -80,8 +80,7 @@ def medium():
             print("correct")
             score += 30
         else:
-            print(f"incorrect, the correct answer is {anwser}")
-     
+            print(f"incorrect, the correct answer is {anwser}")    
 def hard():
     global score
     #2-50*2-50
@@ -95,7 +94,6 @@ def hard():
             score += 50
         else:
             print(f"incorrect, the correct answer is {answer}")
-
 def impossible():
     global score
     #2-100*2-100
@@ -110,11 +108,19 @@ def impossible():
         else:
             print(f"incorrect, the correct answer is {answer}")
 
-
 main()
+print(score)
+
+# user_data[name] = score
+if name in user_data:
+    user_data[name].append(score)
+else:
+    user_data[name] = [score]
 
 
-user_data[name] = score
 
-with open("scores.txt", "r") as f:
+high_score = max(user_data[name])
+print(high_score)
+
+with open("scores.json", "w") as f:
         json.dump(user_data, f)
