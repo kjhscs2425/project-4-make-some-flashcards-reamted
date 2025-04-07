@@ -21,8 +21,9 @@ if name in user_data:
     print(f"your privious scores are {list_of_scores}")
 
 
-print(max(user_data[name]))
-
+    print(f"your high score is {max(user_data[name])}")
+    most_recent_score = user_data[name][-1]
+    print(f" your most recent score is {most_recent_score}")
 def main():
     
     print("\n".join([
