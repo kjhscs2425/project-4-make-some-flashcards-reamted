@@ -6,10 +6,11 @@ import random
 if os.path.isfile("scores.json"):
     with open("scores.json", "r") as user_data:
         user_data =json.load(user_data)
-
+    
 else:
     user_data = {}
     
+
 
 
 name = input("what is your name ")
@@ -19,6 +20,8 @@ if name in user_data:
     list_of_scores = user_data[name]
     print(f"your privious scores are {list_of_scores}")
 
+
+print(max(user_data[name]))
 
 def main():
     
@@ -119,8 +122,7 @@ else:
 
 
 
-high_score = max(user_data[name])
-print(high_score)
+
 
 with open("scores.json", "w") as f:
         json.dump(user_data, f)
