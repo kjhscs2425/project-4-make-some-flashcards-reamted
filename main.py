@@ -19,8 +19,6 @@ score = 0
 if name in user_data:
     list_of_scores = user_data[name]
     print(f"your privious scores are {list_of_scores}")
-
-
     print(f"your high score is {max(user_data[name])}")
     most_recent_score = user_data[name][-1]
     print(f" your most recent score is {most_recent_score}")
@@ -47,7 +45,7 @@ def main():
 def easy():
      global score
      #easy multiplication (2-12)
-     for i in range(2):
+     for i in range(20):
         a = random.randint(2,12)
         b = random.randint(2,12)
         answer = a*b
