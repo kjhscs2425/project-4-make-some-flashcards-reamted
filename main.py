@@ -37,8 +37,10 @@ def main():
     elif choice ==2:
         return easy_medium()
     elif choice == 3:
-        return hard()
+        return medium()
     elif choice == 4:
+        return hard()
+    elif choice == 5:
         return impossible()
     else:
         print("please input a numeber between one and five corisponding which with which difficulty you want")
