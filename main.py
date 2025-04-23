@@ -67,12 +67,12 @@ def easy():
      global score
      #easy multiplication (2-12)
      for i in range(20):
-        a = random.randint(2,12)
-        b = random.randint(2,12)
+        a = random.randint(2, 12)
+        b = random.randint(2, 12)
         answer = a*b
-        user_answer = (input(f"what is {a} * {b}  "))
+        user_answer = (input(f"what is {a} * {b} "))
         if user_answer.isdigit():
-            answer = int(user_answer)
+            user_answer = int(user_answer)
         if user_answer == answer:
             print("correct")
             score += 10
